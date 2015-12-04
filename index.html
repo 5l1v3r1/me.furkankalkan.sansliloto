@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>nativeDroid II - jQueryMobile Template</title>
+		<meta charset="utf-8" /> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<link rel="stylesheet" href="css/font-awesome.min.css" />
+		<link rel="stylesheet" href="vendor/jquerymobile/jquery.mobile.min.css" />
+		<link rel="stylesheet" href="vendor/waves/waves.min.css" />
+		<link rel="stylesheet" href="vendor/wow/animate.css" />
+		<link rel="stylesheet" href="css/nativedroid2.css" />
+
+		<meta name="mobile-web-app-capable" content="yes">
+	 	<meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<style>
+table{
+width:96%;	
+	}
+td {
+    border: 0px solid black;
+    width:16%;
+    height:200%;
+    background:url(img/ball.png);background-size: 100%; background-position:center; background-repeat:no-repeat;"
+}
+.top {
+font-size: calc(7vmin);;
+text-align: center;
+color:red;
+}
+</style>
+	</head>
+	<body>
+
+		<div data-role="page">
+
+			<nd2-include data-src="ext/panel.left.html"></nd2-include>
+
+			<div data-role="panel" id="bottomsheet" data-animate="false" data-position='bottom' data-display="overlay">
+				<nd2-include data-src="ext/bottom.sheet.html"></nd2-include>
+			</div>
+
+			<div data-role="header" data-position="fixed">
+				<a href="#bottomsheet" class="ui-btn ui-btn-right"><i class="zmdi zmdi-more-vert"></i></a>
+				<a href="#leftpanel" class="ui-btn ui-btn-left"><i class="zmdi zmdi-menu"></i></a>
+				<h1>ŞanslıLoto Demo</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-inset="false">
+				<p>Butona tıklayarak bugünkü uğurlu sayılarınızı öğrenin !</p>
+
+<table id="myTable">
+</table>
+<br>
+
+<button onclick="myFunction()">Karıştır</button>
+<script>
+    var table = document.getElementById("myTable");
+    var row = table.insertRow(0);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
+    var cell5 = row.insertCell(4);
+    var cell6 = row.insertCell(5);
+</script>
+<script>
+function getRandomLottoNumbers(){
+	var luckyNumbers = new Array(6)
+	for(var i=0;i<12;i++){
+	randomNum = Math.floor(Math.random() * 49) + 1 
+	if (luckyNumbers.indexOf(randomNum) == -1)  {
+		luckyNumbers.push(randomNum)
+		}
+	}
+	luckyNumbers = luckyNumbers.slice(6,12).sort(function(a, b){return a-b})
+	return luckyNumbers;
+	}
+
+function myFunction() {
+	var numbers = getRandomLottoNumbers()
+    cell1.innerHTML = '<p class="top">'+ numbers[0] +'</p>' ;
+    cell2.innerHTML = '<p class="top">'+ numbers[1]+"</p>";
+    cell3.innerHTML = '<p class="top">'+ numbers[2]+"</p>" ;
+    cell4.innerHTML = '<p class="top">'+ numbers[3]+"</p>";
+    cell5.innerHTML = '<p class="top">'+ numbers[4]+"</p>" ;
+    cell6.innerHTML = '<p class="top">'+ numbers[5]+"</p>";
+}
+myFunction()
+</script>
+
+			</div>
+
+		</div>
+
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
+		<script src="vendor/jquerymobile/jquery.mobile.min.js"></script>
+		<script src="vendor/waves/waves.min.js"></script>
+		<script src="vendor/wow/wow.min.js"></script>
+		<script src="js/nativedroid2.js"></script>
+		<script src="nd2settings.js"></script>
+
+	</body>
+</html>
