@@ -11,22 +11,7 @@
 		<meta name="mobile-web-app-capable" content="yes">
 	 	<meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-	<style>
-		table{
-			width:96%;
-		}
-		td {
-    	border: 0px solid black;
-    	width:16%;
-    	height:200%;
-    	background:url(img/ball.png);background-size: 100%; background-position:center; background-repeat:no-repeat;"
-		}
-		.top {
-			font-size: calc(7vmin);;
-			text-align: center;
-			color:red;
-		}
-	</style>
+		<script>window.open = cordova.InAppBrowser.open;</script>
 	</head>
 	<body>
 		<div data-role="page">
