@@ -11,8 +11,29 @@
 		<meta name="mobile-web-app-capable" content="yes">
 	 	<meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<script>
+	function onLoad(){
+		document.addEventListener("deviceready", onDeviceReady, false);
+	}
+	function onDeviceReady(){
+
+		document.addEventListener("menubutton", onMenuKeyDown, false);
+	}
+	function onMenuKeyDown() {
+
+		if(menuOpen) {
+			console.log("close the menu");
+			menuDiv.style.display="none";
+			menuOpen = false;
+		} else {
+			console.log("open the menu");
+			menuDiv.style.display="block";
+			menuOpen = true;
+		}
+	}
+</script>
 	</head>
-	<body>
+	<body onload="onLoad()">
 		<div data-role="page">
 			<nd2-include data-src="ext/panel.left.html"></nd2-include>
 			<div data-role="panel" id="bottomsheet" data-animate="false" data-position='bottom' data-display="overlay">
